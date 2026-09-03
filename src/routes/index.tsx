@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, ClipboardCheck, MessagesSquare, Users } from "lucide-react";
+import { ArrowRight, BookOpen, Check, ClipboardCheck, MessagesSquare, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { CourseCard } from "@/components/CourseCard";
@@ -60,8 +60,8 @@ const journey = [
 function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border bg-secondary/40">
-        <div className="container-page grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+      <section className="hero-section relative overflow-hidden border-b border-border bg-secondary/40">
+        <div className="hero-grid container-page grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <Reveal className="is-visible">
             <p className="text-xs font-semibold tracking-[0.24em] text-accent-foreground uppercase">
               {site.locality} · CBSE & ICSE
@@ -87,13 +87,31 @@ function HomePage() {
           </Reveal>
 
           <Reveal delay={120} className="is-visible">
-            <div className="grid gap-4 rounded-2xl border border-border bg-card p-8">
-              {resultStats.map((stat) => (
-                <div key={stat.label} className="border-b border-border pb-4 last:border-0 last:pb-0">
-                  <p className="font-display text-3xl text-card-foreground">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+            <div className="hero-visual">
+              <div className="hero-image-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"
+                  alt="Student examining a science experiment in a classroom"
+                  className="hero-image"
+                />
+                <div className="hero-image-wash" />
+                <div className="hero-note hero-note-top">
+                  <span className="hero-note-icon"><Check aria-hidden="true" className="size-4" /></span>
+                  <span><strong>Understand first</strong><small>Apply it with confidence</small></span>
                 </div>
-              ))}
+                <div className="hero-note hero-note-bottom">
+                  <span className="hero-note-stat">4.9</span>
+                  <span><strong>Parent trust</strong><small>Built through clear feedback</small></span>
+                </div>
+              </div>
+              <div className="hero-stats" aria-label="Academy highlights">
+                {resultStats.slice(0, 3).map((stat) => (
+                  <div key={stat.label} className="hero-stat">
+                    <p className="font-display text-2xl text-card-foreground">{stat.value}</p>
+                    <p>{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>

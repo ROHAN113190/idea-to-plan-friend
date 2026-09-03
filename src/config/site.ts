@@ -25,8 +25,8 @@ export const site = {
     facebook: "[OFFICIAL SOCIAL LINKS TO BE ADDED]",
     youtube: "[OFFICIAL SOCIAL LINKS TO BE ADDED]",
   },
-  /** Enquiry webhook endpoint. Empty means "not configured yet". */
-  enquiryWebhookUrl: "",
+  /** Enquiry webhook endpoint. */
+  enquiryWebhookUrl: "https://automate.nirosha.org/webhook/joshisacademy",
 } as const;
 
 /** True when a config value is still an unfilled placeholder. */
